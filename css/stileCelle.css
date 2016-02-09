@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family: 'Open Sans Light',X-LocaleSpecific-Light,'Open Sans',X-LocaleSpecific,sans-serif;
+}
+#cella {
+	float:left;
+	width:400px;
+	height:200px;
+	text-align:center;
+	font-family: 'Open Sans Light',X-LocaleSpecific-Light,'Open Sans',X-LocaleSpecific,sans-serif;
+	box-shadow: 0px 0px 10px  rgb(88, 105, 119);
+}
+#cella img{
+	width:100px;
+	height:100px;
+	text-align:center;
+}
+#materia{
+	border:none;
+}
+#tabellaContatti{
+	height:40px;
+	border-bottom:1px solid gray;
+}
+#tabellaContatti1{
+	height:40px;
+	border-bottom:2px solid;
+	font: caption;
+}
+#cellaContatti{
+	width: 36%;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
