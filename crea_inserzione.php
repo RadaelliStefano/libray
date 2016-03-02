@@ -77,8 +77,13 @@ $(document).ready(function() {
      <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
-    
-     <div style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); height:250px;">
+    <?php
+	if(!isset($_SESSION))
+	session_start();
+	
+	if(isset($_SESSION['logged']) && $_SESSION['logged']==true)
+	{
+     echo'<div style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); height:250px;">
     	<div style="width:430px; margin:auto; padding-top:50px;"><a href="home.php"><img src="LIBRAY.png" alt="logo" style="width:430px;"></a></div>
         	
      </div>
@@ -92,7 +97,7 @@ $(document).ready(function() {
     <h2 align="center">CREAZIONE NUOVA INSERZIONE</h2>
     <br>
    
-	<form    id="inserimentoDati" name="inserimentoDati" action="creainserzione.php" method="post">
+	<form   enctype="multipart/form-data" id="inserimentoDati" name="inserimentoDati" action="creainserzione.php" method="post">
  <fieldset>
     
        <div class="row" align="center">
@@ -141,6 +146,11 @@ $(document).ready(function() {
    </div>
    </div>
      
+    <div align="center" >
+     Carica un immagine:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+   
+    </div>
     <div class="row" align="center">
    <div class="col-sm-5 col-lg-5 " style="float:none ; margin:auto"  >
    <div class="form-group" >
@@ -153,9 +163,9 @@ $(document).ready(function() {
    <div class="form-group" align="center" >
   <label for="comment">Descrizione:</label>
   <textarea class="form-control" rows="5"  style="width:550px "  id="comment" name="comment"></textarea>
-  <script>   CKEDITOR.replace("comment",{width:"550px"})  </script>
-</div>
-    
+  
+  </div>
+   
 
     <div style="float:none;">
     <div style=" margin:auto;width:56px;">
@@ -166,10 +176,14 @@ $(document).ready(function() {
  </fieldset>
 </form>
 <br>
-   </div>
-   
- 
-
+   </div>';
+   	}
+	else if(!isset($_SESSION['logged']) || $_SESSION['logged']==false)
+	{
+		header('location: redirect.php');
+	}
+ ?>
+<script>   CKEDITOR.replace("comment",{width:"550px"})  </script> 
    <div style=" margin-top:-3%">
 <nav class="navbar navbar-default" style="background-color:white;">
 					<div class="container-fluid">

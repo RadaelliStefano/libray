@@ -11,10 +11,12 @@ if(!isset($link))
 }
 
 include ("log.php");
+
 $flagSonoAutenticato=false;
+
 if(isset($_SESSION['logged']) && $_SESSION['logged']==true)
 {
-	//controllo se i valori che ho in memoria session sono corretti
+	//controllo se i valori che ho in memoria session sono corretti 
 	if(Login($_SESSION['email'],$_SESSION['password']))
 	{
 		//ok 
@@ -60,7 +62,10 @@ else
     <link href="css/jquery-ui.structure.css">
     <link href="css/jquery-ui.theme.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/md5.js"></script>
     <link href="css/login2.css" rel="stylesheet">
+	
 	
     <script >
 	var i=1;
@@ -80,6 +85,9 @@ else
 			}
    	 });
   	});
+	
+	
+	
     </script>
 </head>
   <body style="min-height:800px; font-family:'Open Sans',X-LocaleSpecific-Light,'Open Sans',X-LocaleSpecific,sans-serif;min-width: 1349px;">
@@ -96,22 +104,24 @@ else
           <table style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); width:100%; height: 200px;"> 
 		<tr>
     		<td style="width:35%"><img src="LIBRAY.png" alt="logo" href="home.html" style="width:430px; margin-left:6%; "></td>
-			
+			<form action="risultati_cerca_2.php" method="get">
 			<td style="width:40%">
 				<div class="col-sm-6 col-sm-offset-3">
 					<div id="imaginary_container"> 
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control"  placeholder="Cerca per titolo..." style="height:46px" >
+						
+							<input type="text"  id="titolo" name="titolo" class="form-control"  placeholder="Cerca per titolo..." style="height:46px" >
 								<span class="input-group-addon">
 									<button type="submit">
 										<span class="glyphicon glyphicon-search"></span>
 									</button>  
 								</span>
+						
 						</div>
 					</div>
 				</div>
 			</td>
-	
+			</form>
 				<td style="width: 67%;
 						   text-align: right;"> 
 						   <p style="font-size:35px; margin-right:30px;">Benvenuto<span style="color: #0054FF">';
@@ -133,21 +143,8 @@ else
 		<tr>
     		<td style="width:35%"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></td>
 			
-			<td style="width:40%">
-				<div class="col-sm-6 col-sm-offset-3">
-					<div id="imaginary_container"> 
-						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control"  placeholder="Cerca per titolo..." style="height:46px" >
-								<span class="input-group-addon">
-									<button type="submit">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>  
-								</span>
-						</div>
-					</div>
-				</div>
-			</td>
-			<td><button  class="btn btn-lg btn-primary btn-block" id="MioLoginBottone"  type="button" style="width:35%">
+			
+			<td><button  class="btn btn-lg btn-primary btn-block" id="MioLoginBottone"  type="button" style="width: 14%;float: right;margin-right: 25%";>
                     Log in
 				</button></td>
     
@@ -156,14 +153,16 @@ else
      </table>
      <div class="col-sm-6 col-md-4 col-md-offset-4 hidden"  style="background-color: transparent;" >
 				<div class="account-wall" style="border:1px; box-shadow: 0px 0px 10px rgb(88, 105, 119);">
-					<form name="form_login" method="post" action="home.php" class="form-signin" style="border-bottom:none" >
+					<form name="form_login" method="post" action="home.php" class="form-signin" style="border-bottom:none" 
+					onsubmit="this.password.value=CryptoJS.MD5(this.password.value); ">
 						<input name="email" type="email" class="form-control" placeholder="Email" required autofocus>
-							<input type="password" name="password" class="form-control" placeholder="Password" required>
-								<button  class="btn btn-lg btn-primary btn-block" type="submit">
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+								<button  class="btn btn-lg btn-primary btn-block" type="submit" >
 									LOG IN
 								</button>
-							
+					
 								<a href="Reg.php" class="pull-center need-help">Crea un nuovo account </a><span class="clearfix"></span>
+								<a href="PassDimenticata.php" class="pull-center need-help">Password dimenticata? </a><span class="clearfix"></span>
 					</form>
 				</div> 
 			</div> ';

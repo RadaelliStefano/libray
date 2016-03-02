@@ -13,6 +13,7 @@
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="css/login2.css" rel="stylesheet">
         <?php
+		if(!isset($_SESSION))
 	session_start();// come sempre prima cosa, aprire la sessione 
 	include("db_con.php"); // includere la connessione al database
 ?>
@@ -51,10 +52,19 @@ function elimina_utente(ID)
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <?php
+	if(isset($_SESSION['logged'])  && $_SESSION['logged']==true)
+	{
+		 $id=$_SESSION['ID'];
+		  
+          $query = $link->query("SELECT admin FROM utente WHERE IDUtente=$id;");
+          $row=$query->fetch_array();
+		  $admin=$row[0];
+		  if($admin==1)
+		  {
     echo'
 		 <table style="width:100%; background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%)">
 			<tr>
-				<td style="width:35%; padding-top:26px"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></td>
+				<td style="width:35%; padding-top:26px"><a href="home.php"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></a></td>
 			
 			
 				<td style="width: 67%;
@@ -113,7 +123,8 @@ $id=$row['IDUtente'];
                echo'  <td><button onclick="elimina_utente('.$id.');"  class="btn btn-default"   >Elimina utente</button>';
            echo" </tr>";
            echo"</br>";
-}   
+} 
+
 		echo'
         </table>
 		
@@ -141,9 +152,17 @@ $id=$row['IDUtente'];
 			</td>
 		</tr>
 	</table>
-  ';
-
-
+  ';}
+  else
+  {
+	  echo" non hai i permessi per visualizzare questa pagina";
+  }
+	
+	}
+	else
+	{
+		header('location: redirect.php');
+	}
 ?>            
                 </body>
 </html>

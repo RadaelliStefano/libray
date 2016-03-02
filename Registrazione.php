@@ -1,12 +1,13 @@
 <?php
 	session_start();
 	include("db_con.php"); 
-	
+	include("log.php");
 	
 	$pass=$link->real_escape_string($_POST["Password"]);
 	$nome= $link->real_escape_string($_POST["Nome"]);
 	$cognome= $link->real_escape_string($_POST["Cognome"]);
 	$email=$link->real_escape_string($_POST["Email"]);
+	
 	
     $controllo=true;
 	if($pass!= "" && $nome!= "" && $cognome!= "" && $email!= "")
@@ -37,6 +38,7 @@
 	}
 	if(isset($query_registrazione))
 	{ //se la reg è andata a buon fine
+		Login($email,$pass);
 		header("location:Success.php");
 	}
 	else

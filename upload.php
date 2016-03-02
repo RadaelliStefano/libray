@@ -1,16 +1,4 @@
 <?php
-
-session_start();
-include("db_con.php"); 
-$data=date('Y-m-d') ;
-$idLibro=$_POST['titolo'];
-$prezzo=$_POST['prezzo'];
-$desc=$link->real_escape_string($_POST['comment']);
-$idutente=$_SESSION['ID'];
-$ris=$link->query("select max(IDvendita) from vendite");
-$row=$ris->fetch_array();
-$idMax=$row[0];
-$idMax=$idMax+1;
 $target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -48,7 +36,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
 	$temp = explode(".", $_FILES["fileToUpload"]["name"]);
-	$newfilename = "$idMax" . '.' . end($temp);
+	$newfilename = "ciao" . '.' . end($temp);
 	
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir.$newfilename)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
@@ -57,20 +45,4 @@ if ($uploadOk == 0) {
     }
 }
 
-
-
-	if( $prezzo!= 0 &&  $desc != "" ){  // se i parametri iscritto non sono vuoti non sono vuote
-		 $query_creazione = $link->query("INSERT INTO `vendite`( `IDutente`, `IDLibro`, `prezzo`, `datadiinserimento`, `descrizione`, `venduto`) VALUES ($idutente , $idLibro, $prezzo,$data,'.$desc.',0)"); 
-	
-	}
-	if(isset($query_creazione))
-	{ //se la reg è andata a buon fine
-		header("location:home.php");
-	}
-	else
-	{
-		echo "non ti sei registrato con successo"; // altrimenti esce scritta a video questa stringa
-	}
-    
-    
 ?>

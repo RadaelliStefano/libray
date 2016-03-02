@@ -69,7 +69,7 @@
     
   <script type="text/javascript">
 			$(document).ready(function() {
-				
+					
 					Show=1;
 					$('#ShowHide1').click(function() {
 						var textbox_elem = document.getElementById("InputPassword1");
@@ -122,8 +122,13 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
+	<?php
+	if(!isset($_SESSION))
+	session_start();
 	
-	
+	if(isset($_SESSION['logged']) && $_SESSION['logged']==true)
+	{
+	echo'
     <div style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); height:250px;">
     	<div style="width:430px; margin:auto; padding-top:5%;"><a href="home.php"><img src="LIBRAY.png" alt="logo" style="width:430px;"></a></div>
         	
@@ -138,8 +143,7 @@
 				<br>
 		<h2 align="center">Cambia Password</h2>
 			<br>
-		<form    id="inserimentoDati" name="inserimentoDati" action="Registrazione.php" method="post">
-							
+			
             
 			
             <div class="row" align="center">
@@ -186,13 +190,14 @@
 				</div>
 			</div>
             
-            
-            
-</form>
-
-
-</div>
-	
+            </div>';
+	}
+	else if(!isset($_SESSION['logged']) || $_SESSION['logged']==false )
+	{
+		header('location: redirect.php');
+	}
+			
+?>	
 <table style="width:100%">
 		<tbody><tr>
 			<td>

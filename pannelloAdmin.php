@@ -24,7 +24,7 @@
 	
           <table style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); width:100%; height: 200px;"> 
 		<tr>
-    		<td style="width:35%"><img src="LIBRAY.png" alt="logo" href="home.html" style="width:430px; margin-left:6%; "></td>
+    		<td style="width:35%"><a href="home.php"><img src="LIBRAY.png" alt="logo" href="home.html" style="width:430px; margin-left:6%; "></a></td>
 			<td style="width: 67%; text-align: right;"> 
 						   <p style="font-size:35px; margin-right:30px;">Benvenuto Admin!<span style="color: #0054FF">
 						   <p style="font-size:25px; margin-right:30px;"> Non sei tu? <button onclick="window.location.href='http://libray.altervista.org/logout.php'" style="background-color: #337AB7;color: white;border-color: #337ab7;" class="btn btn-default" >logout</button></p>
@@ -106,4 +106,4 @@
     
     
   </body>
-</html>
+</html>

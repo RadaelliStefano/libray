@@ -6,6 +6,7 @@ if(!isset($link))
 function Login($email,$pass)
 {
 	include("db_con.php"); // Include il file di connessione al database
+	
 		
 	$result = $link->query("SELECT * FROM utente WHERE email='$email' AND password ='$pass'");
 

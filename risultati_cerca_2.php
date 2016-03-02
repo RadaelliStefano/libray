@@ -13,6 +13,7 @@
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="css/login2.css" rel="stylesheet">
         <?php
+	if(!isset($_SESSION))
 	session_start();// come sempre prima cosa, aprire la sessione 
 	include("db_con.php"); // includere la connessione al database
 ?>
@@ -34,7 +35,7 @@ function Reindirizza(ID)
     echo'
 		 <table style="width:100%; background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%)">
 			<tr>
-				<td style="width:35%; padding-top:26px"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></td>
+				<td style="width:35%; padding-top:26px"><a href="home.php"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></a></td>
 			
 			
 				<td style="width: 67%;
@@ -47,8 +48,32 @@ function Reindirizza(ID)
 						   <p style="font-size:25px"> Non sei tu? <button onclick=window.location.href="http://libray.altervista.org/logout.php"  class="btn btn-default" >logout</button></p>
 				</td> 		
 			</tr>
-		</table>
+		</table>';
 		
+		 if(isset($_GET["indirizzo"]) && isset($_GET["classe"]))
+        {
+        	$sql = "select libro.titolo, vendite.descrizione, vendite.IDvendita as ivd from vendite inner join libro on(vendite.`IDLibro`=libro.`ID libro` ) inner join LIBRO_CLASSE on(libro.`ID libro`= LIBRO_CLASSE.`ID LIBRO`) inner join classe on(LIBRO_CLASSE.`ID CLASSE`=classe.IDclasse) inner join LIBRO_CORSO on (libro.`ID libro`=LIBRO_CORSO.ID_LIBRO) inner join corso on(LIBRO_CORSO.ID_CORSO=corso.IDCorso) where classe.classe=\"$_GET[classe]\" AND corso.corso=\"$_GET[indirizzo]\" AND vendite.venduto=0";
+        $result = $link->query($sql);
+        }
+        if(isset($_GET["materia"]))
+        {
+             $sql = "select libro.titolo, vendite.descrizione, vendite.IDvendita as ivd from vendite inner join libro on(vendite.`IDLibro`=libro.`ID libro` ) inner join materia on (libro.IDmateria=materia.IDMateria) where materia=\"$_GET[materia]\" AND vendite.venduto=0";
+       		 $result = $link->query($sql);
+        }
+		if(isset($_GET["titolo"]))
+		{
+			 $sql = "select libro.titolo, vendite.descrizione, vendite.IDvendita as ivd from vendite inner join libro on(vendite.`IDLibro`=libro.`ID libro` ) where titolo=\"$_GET[titolo]\" AND vendite.venduto=0";
+       		 $result = $link->query($sql);
+		}
+			
+       $num=mysqli_num_rows( $result);
+	    if($num==0)
+	   {
+		   echo'<p align="center">non ci sono ancora inserzioni di questo libro</p>';
+	   }
+	   else
+	   {
+		   echo'
 		<table style="width:70%; margin:auto;">
 			<tr style="border: 1px solid #E7E7E7; width:100%; border-left:none; border-right:none;">
 				<td style=" padding-top: 10px;
@@ -69,21 +94,7 @@ function Reindirizza(ID)
 			</tr>
             <br>';
             
-            	
-               
-        if(isset($_GET["indirizzo"]) && isset($_GET["classe"]))
-        {
-        	$sql = "select libro.titolo, vendite.descrizione, vendite.IDvendita as ivd from vendite inner join libro on(vendite.`IDLibro`=libro.`ID libro` ) inner join LIBRO_CLASSE on(libro.`ID libro`= LIBRO_CLASSE.`ID LIBRO`) inner join classe on(LIBRO_CLASSE.`ID CLASSE`=classe.IDclasse) inner join LIBRO_CORSO on (libro.`ID libro`=LIBRO_CORSO.ID_LIBRO) inner join corso on(LIBRO_CORSO.ID_CORSO=corso.IDCorso) where classe.classe=\"$_GET[classe]\" AND corso.corso=\"$_GET[indirizzo]\"";
-        $result = $link->query($sql);
-        }
-        if(isset($_GET["materia"]))
-        {
-             $sql = "select libro.titolo, vendite.descrizione, vendite.IDvendita as ivd from vendite inner join libro on(vendite.`IDLibro`=libro.`ID libro` ) inner join materia on (libro.IDmateria=materia.IDMateria) where materia=\"$_GET[materia]\"";
-       		 $result = $link->query($sql);
-        }
-			
-           
-while ($row = $result->fetch_array()) {
+            while ($row = $result->fetch_array()) {
 
  echo "<tr style=border-bottom: 1px solid #E7E7E7>";
             	echo'<td style="padding-top: 10px;padding-bottom: 10px; font-size: 16px;">'. $row['titolo'].'</td>';
@@ -92,7 +103,12 @@ while ($row = $result->fetch_array()) {
            echo" </tr>";
            echo"</br>";
 } 
-
+	  
+	   }
+               
+       
+	  
+	  
 
             
 		echo'

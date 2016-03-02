@@ -1,23 +1,8 @@
 <?php
-	session_start();// come sempre prima cosa, aprire la sessione 
+	
 	include("db_con.php"); // includere la connessione al database
-    if($_SESSION['logged']=='true')
-        { 
-          $id=$_SESSION['ID'];
-		  
-          $query = $link->query("SELECT admin FROM utente WHERE IDUtente=$id;");
-          $row=$query->fetch_array();
-		  $admin=$row[0];
-		 
-          if($admin==0)
-          {
-			header('location: redirect.php');
-          }
-        }
-     else
-     {
-     	header('location: redirect.php');
-     }
+  
+ 
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -64,7 +49,20 @@
     	<div style="width:430px; margin:auto; padding-top:5%;"><a href="home.php"><img src="LIBRAY.png" alt="logo" style="width:430px;"></a></div>
         	
      </div>
+	<?php
+	if(!isset($_SESSION))
+	session_start();
 	
+	if(isset($_SESSION['logged'])  && $_SESSION['logged']==true)
+	{
+		 $id=$_SESSION['ID'];
+		  
+          $query = $link->query("SELECT admin FROM utente WHERE IDUtente=$id;");
+          $row=$query->fetch_array();
+		  $admin=$row[0];
+		  if($admin==1)
+		  {
+    echo'
 	<div style="border-radius: 15px;
 				width: 50%;
 				border: 0px solid;
@@ -107,8 +105,8 @@
 							<label for="materia">Materia</label>
                             <div class="input-group">
                               <span class="input-group-addon" id="start-date" title="Mostra E-Mail"><span class="glyphicon glyphicon-envelope"></span></span>
-                              <select name="materia" class="form-control" id="materia">
-                              <?php
+                              <select name="materia" class="form-control" id="materia">';
+                              
 							  
                               $result=$link->query("SELECT * FROM materia order by materia;");
                               echo "<option value=0>---seleziona---</option>";
@@ -118,7 +116,7 @@
   		 						$title=$row['materia'];
                                 echo "<option value=$id>$title</option>";
                               }
-                              ?>
+                              echo'
                               </select>
                             </div>
                             </div>
@@ -131,8 +129,9 @@
 						<label for="casaeditrice">Casa editrice</label>
                         <div class="input-group">
 							<span class="input-group-addon" id="start-date" title="Mostra E-Mail"><span class="glyphicon glyphicon-envelope"></span></span>
-							<select name="casaeditrice" type="text" required class="form-control" id="casaeditrice" placeholder="Inserisci la casa editrice...">
-						    <?php
+							<select name="casaeditrice" type="text" required class="form-control" id="casaeditrice" placeholder="Inserisci la casa editrice...">';
+						    
+						
                               $result=$link->query("SELECT * FROM casaeditrice order by casaEditrice;");
                               echo "<option value=0>---seleziona---</option>";
                               while($row = $result->fetch_array())
@@ -141,7 +140,7 @@
   		 						$title=$row['casaEditrice'];
                                 echo "<option value=$id>$title</option>";
                               }
-                              ?>
+                              echo'
                             </select> 
                         </div>
                     </div>
@@ -154,8 +153,8 @@
 						<label for="autore">Autore</label>
                         <div class="input-group">
 							<span class="input-group-addon" id="start-date" title="Mostra E-Mail"><span class="glyphicon glyphicon-envelope"></span></span>
-							<select name="autore" type="text" required class="form-control" id="autore" placeholder="Inserisci autore...">
-						    <?php
+							<select name="autore" type="text" required class="form-control" id="autore" placeholder="Inserisci autore...">';
+						    
                               $result=$link->query("SELECT * FROM autore order by autore;");
                               echo "<option value=0>---seleziona---</option>";
                               while($row = $result->fetch_array())
@@ -164,7 +163,7 @@
   		 						$title=$row['autore'];
                                 echo "<option value=$id>$title</option>";
                               }
-                              ?>
+                              echo'
                               </select>
                         </div>
                     </div>
@@ -222,8 +221,17 @@
 </form>
 
 
-</div>
-	
+</div>';
+		  }else
+		  {
+			  echo" non hai i permessi per visualizzare questa pagina";
+		  }
+	}
+	else if(!isset($_SESSION['logged']) || $_SESSION['logged']==false)
+	{
+		header('location: redirect.php');
+	}
+?>	
 <table style="width:100%">
 		<tbody><tr>
 			<td>

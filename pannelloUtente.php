@@ -13,6 +13,7 @@
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="css/login2.css" rel="stylesheet">
         <?php
+		if(!isset($_SESSION))
 	session_start();// come sempre prima cosa, aprire la sessione 
 	include("db_con.php"); // includere la connessione al database
 ?>
@@ -97,13 +98,14 @@ else if(num==1)
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <?php
-    if($_SESSION['logged']=="true")
+	
+    if(isset($_SESSION['logged']) && $_SESSION['logged']==true)
     {
     echo'
 		 <table style="width:100%; background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%)">
          
 			<tr>
-				<td style="width:35%; padding-top:26px"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></td>
+				<td style="width:35%; padding-top:26px"><a href="home.php"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></a></td>
 			
 			
 				<td style="width: 67%;
@@ -148,9 +150,16 @@ else if(num==1)
         $result = $link->query($sql);
         
             
+$num=mysqli_num_rows( $result);
 
-           
+if($num==0)
+{
+	echo"non hai ancora creato inserzioni";
+}
+else
+{
 while ($row = $result->fetch_array()) {
+
 
  echo "<tr style=border-bottom: 1px solid #E7E7E7>";
             	echo'<td style="padding-top: 10px;padding-bottom: 10px; font-size: 16px;">'. $row['titolo'].'</td>';
@@ -170,7 +179,7 @@ while ($row = $result->fetch_array()) {
 
 } 
 
-
+}
             
 		echo'
         </table>

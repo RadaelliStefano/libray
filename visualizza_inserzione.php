@@ -15,6 +15,7 @@
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="css/login2.css" rel="stylesheet">
     <?php
+	if(!isset($_SESSION))
 	session_start();// come sempre prima cosa, aprire la sessione 
 	include("db_con.php"); // includere la connessione al database
 	?>
@@ -26,12 +27,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
   <?php
-  if($_SESSION['logged']=="true")
+  
+  if(isset($_SESSION) && $_SESSION['logged']==true)
   {
    echo'  
    <table style="width:100%; background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%)">
 			<tr>
-				<td style="width:35%; padding-top:26px"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></td>
+				<td style="width:35%; padding-top:26px"><a href="home.php"><img src="LIBRAY.png" alt="logo" href="home.php" style="width:430px; margin-left:6%; "></a></td>
 			
 			
 				<td style="width: 67%;
@@ -62,11 +64,11 @@ $row[0];
 if($row[0]==0)
 {
 echo'		
-<table>
+<table>a
 		<tr>
 			<td>
             <div style=" margin-left: 140px;">
-            <img src="mate.jpg" alt="ciao" width="100%" height="100%" >
+            <img src="img/'.$_GET['idv'].'.jpeg" alt="ciao" width="100%" height="100%" >
             </div>
             </td>
             <td style="width: 50px"></td>
@@ -74,8 +76,7 @@ echo'
                       <table style="width:100%; text-align:center; height:372px; ">
                         <tr>
                        	 <td><h1 style="border-bottom: 1px dashed rgb(179, 179, 204);
-                                height: 64%;
-                                }">';
+                                height: 64%; ">';
                          
 
 
@@ -157,9 +158,10 @@ echo'
   </div>
 </nav></div>';
 }
-  }else
+  else
   {
 	  echo " libro non disponbile";
+  }
   }
 }
 else 

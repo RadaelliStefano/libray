@@ -1,4 +1,4 @@
-<?php
+<php?
 	session_start();// come sempre prima cosa, aprire la sessione 
 	include("db_con.php"); // includere la connessione al database
 	?>
@@ -15,6 +15,8 @@
 	<link href="css/jquery-ui.css">
     <link href="css/jquery-ui.structure.css">
     <link href="css/jquery-ui.theme.css">
+    <script src="js/core.js"></script>
+    <script src="js/md5.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link href="css/login2.css" rel="stylesheet">
     <script src="ckeditor/ckeditor.js"> </script>
@@ -43,23 +45,28 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.js"></script>
+	<?php
+	if(!isset($_SESSION))
+	session_start();
 	
-	
-    <div style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); height:250px;">
+   echo' <div style="background-image:-webkit-linear-gradient(bottom, #FFFFFF 0%, #AACFEF 100%); height:250px;">
     	<div style="width:430px; margin:auto; padding-top:5%;"><a href="home.php"><img src="LIBRAY.png" alt="logo" style="width:430px;"></a></div>
         	
-     </div>
-	
+     </div>';
+	if(	!isset($_SESSION['logged']) ||  $_SESSION['logged']==false)
+		{		
+		echo'
 	<div style="border-radius: 15px;
 				width: 50%;
 				border: 0px solid;
 				margin:auto;
 				margin-bottom: 8%;
 				box-shadow: 0px 0px 40px #265781;">
-				<br>
+				<br>;
 		<h2 align="center">Registrati</h2>
 			<br>
-		<form    id="inserimentoDati" name="inserimentoDati" action="Registrazione.php" method="post">
+		<form    id="inserimentoDati" name="inserimentoDati" action="Registrazione.php" method="post"
+		onsubmit="this.Password.value=CryptoJS.MD5(this.Password.value);">
 							
             
 			
@@ -93,7 +100,7 @@
 						<label for="nome">Email</label>
                         <div class="input-group">
 							<span class="input-group-addon" id="start-date" title="Mostra E-Mail"><span class="glyphicon glyphicon-envelope"></span></span>
-							<input name="Email" type="email" required class="form-control" id="email" placeholder="Inserisci l'e-mail...">
+							<input name="Email" type="email" required class="form-control" id="email" placeholder="Inserisci la mail...">
 						</div>
                     </div>
 				</div>
@@ -122,8 +129,27 @@
 </form>
 
 
-</div>
-	
+</div>';
+	}
+	else
+	{
+		echo'	<div style="border-radius: 15px;
+				width: 50%;
+				border: 0px solid;
+				margin:auto;
+				margin-bottom: 8%;
+				box-shadow: 0px 0px 40px #265781;
+                padding-bottom:1%;
+                padding-top:1%;
+                padding-left:1%;
+                padding-right:1%;">
+				<h1 align="center">OPS...</h1> <h4 align="center"> Non puoi creare un nuovo utente se sei gia loggato <br> Clicca <a href="home.php">QUI</a> per tornare alla home o clicca <a href="logout.php">QUI</a> per eseguire il logout. </h4>
+		
+
+
+</div>'; 	
+	}
+?>
 <table style="width:100%">
 		<tbody><tr>
 			<td>
