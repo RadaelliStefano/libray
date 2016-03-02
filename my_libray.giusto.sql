@@ -1,0 +1,733 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 02, 2016 alle 11:47
+-- Versione del server: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `my_libray`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `autore`
+--
+
+CREATE TABLE IF NOT EXISTS `autore` (
+  `IDAutori` int(11) NOT NULL AUTO_INCREMENT,
+  `autore` varchar(60) NOT NULL,
+  PRIMARY KEY (`IDAutori`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=227 ;
+
+--
+-- Dump dei dati per la tabella `autore`
+--
+
+INSERT INTO `autore` (`IDAutori`, `autore`) VALUES
+(1, 'CONTADINI M'),
+(2, 'SENSINI MARCELLO'),
+(3, 'BIGLIA PAOLA'),
+(4, 'MANFREDI PAOLA'),
+(5, 'TERRILE ALESSANDRA'),
+(6, 'BONCI LAURA'),
+(7, 'HOWELL SARAH MERCEDES'),
+(8, 'LAYTON MARGARET'),
+(9, 'SPIAZZI MARINA'),
+(10, 'TAVELLA MARINA'),
+(11, 'AGUZZI NADIA'),
+(12, 'ZANETTE EMILIO'),
+(13, 'ROVEDA ROBERTO'),
+(14, 'DINUCCI MANLIO'),
+(15, 'PELLEGRINI CARLA'),
+(16, 'LUPIA PALMIERI ELVIDIO'),
+(17, 'PAROTTO MAURIZIO'),
+(18, 'TOTTOLA'),
+(19, 'ALLEGREZZA'),
+(20, 'RIGHETTI'),
+(21, 'BERGAMINI MASSIMO'),
+(22, 'BAROZZI GRAZIELLA'),
+(23, 'GALLO PIERO'),
+(24, 'SISSI'),
+(25, 'PARODI GIANPAOLO'),
+(26, 'OSTILI MARCO'),
+(28, 'ANDREANI FERNANDA'),
+(29, 'DADDA CLARA'),
+(30, 'LANDORNO SANDRO'),
+(31, 'SOLINAS LUIGI'),
+(32, 'AMALDI UGO'),
+(33, 'SASSO LEONARDO'),
+(34, 'BARBERO ALBERTO'),
+(35, 'VASCHETTO FRANCESCO'),
+(36, 'GIORDANO CECILIA'),
+(37, 'CRACOLICE MARK S.'),
+(38, 'PETERS EDWARD I'),
+(39, 'CATTANI MARIA RITA'),
+(40, 'DELLAVECCHIA SERGIO'),
+(41, 'CAVAZZUTI CRISTINA'),
+(42, 'DAMIANO DANIELA'),
+(43, 'BALDI GUIDO'),
+(44, 'GIUSSO SILVIA'),
+(45, 'RANZETTI MARIO'),
+(46, 'FELTRI FRANCESCO MARIA'),
+(47, 'BERTAZZONI MARIA MANUELA'),
+(48, 'NERI FRANCA'),
+(49, 'LORENZI AGOSTINO'),
+(50, 'MORIGGIA VITTORIO'),
+(51, 'RIZZI ANDREA'),
+(52, 'CAVALLI ENRICO'),
+(53, 'COLLEONI ANDREA'),
+(54, 'FUSELLI DANIELE'),
+(55, 'BALDINO E'),
+(56, 'RONDANO R'),
+(57, 'SPANO A'),
+(58, 'O''MALLEY'),
+(59, 'GENTILE GIANNI'),
+(60, 'ROSSI ANNA'),
+(61, 'RONGA LUIGI'),
+(62, 'SALERNO FABIO'),
+(63, 'RANZETTI'),
+(64, 'IACOBELLI C'),
+(65, 'BARONCINI P'),
+(66, 'FRAGNI I'),
+(67, 'MANFREDI ROBERTO'),
+(68, 'ANNUNZIATA LUCIA'),
+(69, 'DEAGLIO ENRICO'),
+(70, 'CURTIS HELENA'),
+(71, 'BARNES SUE N'),
+(72, 'SCHNEK A'),
+(73, 'VALITUTTI GIOVANNI'),
+(74, 'FALASCA MARCO'),
+(75, 'TIFI A'),
+(76, 'FUMARCO CRISTINA'),
+(77, 'ANSALDO MARIELLA'),
+(78, 'BERTOLI SAVINA'),
+(79, 'MIGNANI ANTONELLA'),
+(80, 'NEWBROOK'),
+(81, 'BURGESS'),
+(82, 'BANTI ALBERTO MARIO'),
+(83, 'GEYMONAT TAGLIAGAMBE MANERA'),
+(84, 'BONCINELLI CATTANEO ZUCCHELLO'),
+(85, 'SIRSI P'),
+(86, 'BELL'),
+(87, 'THOMAS'),
+(88, 'MEDAGLIA CINZIA'),
+(89, 'YOUNG BEVERLEY ANNE'),
+(90, 'PETERS'),
+(91, 'RE FRASCHINI MARZIA'),
+(92, 'GRAZZI GABRIELLA'),
+(93, 'CAFORIO ANTONIO'),
+(94, 'FERILLI ALDO'),
+(95, 'BELTRAME LAURA'),
+(96, 'DEMARTINI ELENA'),
+(97, 'TONETTI LAVINIA'),
+(98, 'VALITUTTI GIUSEPPE'),
+(99, 'TADDEI NICOLò'),
+(100, 'BOSELLINI ALFONSO'),
+(101, 'GATTI CHIARA'),
+(102, 'VILLA ELISABATTA'),
+(103, 'GALLAGHER'),
+(104, 'GALUZZI'),
+(105, 'CRIPPA MASSIMO'),
+(106, 'FIORANI MARCO'),
+(107, 'RIZZO ROSA ANNA'),
+(108, 'ANZALONE GIUSEPPE'),
+(109, 'BASSIGNANA PAOLO'),
+(110, 'BRAFA MUSICORO GIUSEPPE'),
+(111, 'NATALI GRAZIANO'),
+(112, 'DI GENNARO CATALDO'),
+(113, 'CHIAPPETTA ANNA LUISA'),
+(114, 'CHILLEMI ANTONINO'),
+(115, 'CALIGARIS'),
+(116, 'FAVA'),
+(117, 'TOMASELLO'),
+(118, 'BERNARDINI GABRIELLA'),
+(119, 'VIDORI MARIA'),
+(120, 'DE BENEDITTIS GIUSEPPE'),
+(121, 'AMERINI FRANCO'),
+(122, 'MANTELLI GIOVANNA'),
+(123, 'VALENTI DORIS'),
+(124, 'MODELLI FRANCESCA'),
+(125, 'GAINOTTI ALBA'),
+(126, 'CAMAGNI PAOLO'),
+(127, 'NOKOLASSY RICCARDO'),
+(128, 'GENTILE ANTONINO'),
+(129, 'TROSCHEL'),
+(130, 'AIME CARLO'),
+(131, 'PASTORINO MARIA GRAZIA'),
+(132, 'MANZONI ALESSANDRO'),
+(133, 'TORNOTTI GIANLUIGI'),
+(134, 'BRIANO PAOLA'),
+(135, 'HART HAROLD'),
+(136, 'HART DAVID J'),
+(137, 'CRAINE LESLIE E'),
+(138, 'PASQUETTO SERGIO'),
+(139, 'PATRONE LUIGI'),
+(140, 'CREA ADELAIDE'),
+(141, 'CALATOZZOLO MARIANO'),
+(142, 'NATOLI SILVESTRO'),
+(143, 'GRASSO ELISABETTA'),
+(144, 'MELCHIORI PAOLA'),
+(145, 'ARAVANIS ROSEMARY'),
+(146, 'VASSILAKIS GEORGE'),
+(147, 'COZZI RENATO'),
+(148, 'PROTTI PIERPAOLO'),
+(149, 'RAURO TARCISIO'),
+(150, 'FRANCHI MARTELLI B'),
+(151, 'STEFANI MASSIMO'),
+(152, 'TADDEI NICCOLO'''),
+(153, 'FANTI FABIO'),
+(154, 'MIRRI LUIGI'),
+(155, 'PARENTE MICHELE'),
+(156, 'SANGIORGIO SILVIA'),
+(157, 'RUBINI LUCA'),
+(158, 'SEKULSKI BIRGIT'),
+(159, 'DRABICH NINA'),
+(160, 'PILOTTI GIORGIO'),
+(161, 'IARRERA FRANCESCO'),
+(162, 'BONDONNO MARIA'),
+(163, 'CASSINA ELSA'),
+(164, 'LUGHEZZANI FLAVIA'),
+(165, 'PRINCIVALLE DANIELA'),
+(166, 'SORRENTINO LIDIA'),
+(167, 'ELIA ANTONIO'),
+(168, 'INGICCO MARIA TERESA'),
+(169, 'ALIGHIERI DANTE'),
+(170, 'VANNI ANGELA'),
+(171, 'DELOR REGINE'),
+(172, 'GABBI'),
+(173, 'MORSELLI'),
+(174, 'ORLANDINO'),
+(175, 'GILIBERT ALFREDO'),
+(176, 'ARDOLFI NINO'),
+(177, 'LAZZERINI VALERIO'),
+(178, 'BENTINI'),
+(179, 'RICHARDSON'),
+(180, 'VAUGHAM'),
+(181, 'BONELLI PAOLA'),
+(182, 'PAVAN ROSANNA'),
+(183, 'HEPP M'),
+(184, 'FOSCHI ALBERT M'),
+(185, 'INDELICATO A'),
+(186, 'RANIERO C'),
+(187, 'DI SACCO'),
+(188, 'ZANI GILBERTO'),
+(189, 'VINCE M'),
+(190, 'BOUTEGEGE REGINE'),
+(191, 'TRIFONE ANNA'),
+(192, 'CAGLIARDINI LIVIANA'),
+(193, 'HATUEL DOMITILLE'),
+(194, 'PALMERIO G'),
+(195, 'CROCETTI SIMONE'),
+(196, 'BUSANI'),
+(197, 'DEPONTI'),
+(198, 'CHIOCCHIO MARIA ANTONIETTA'),
+(199, 'NAPOLI MARISA'),
+(200, 'ARREGHINI'),
+(201, 'ZUCCOLI'),
+(202, 'TINCATI CRISTINA'),
+(203, 'DELL''ACQUA MORENO'),
+(204, 'DI PIETRO FABIO'),
+(205, 'DI PIETRO RAFFAELE'),
+(206, 'DI PIETRO FABIO'),
+(207, 'SOARS JOHN'),
+(208, 'SOARS LIZ'),
+(209, 'SAVADA DAVID'),
+(210, 'HELLER CRAIG H.'),
+(211, 'ORIANS PURVES HILLIS'),
+(212, 'DE FLAVIIS D'),
+(213, 'CATTANEO A'),
+(214, 'DOVERI'),
+(215, 'JEANNINE'),
+(216, 'FRASSINETTI ANNA'),
+(217, 'ROTA ANDREA'),
+(218, 'FOSSATI MARCO'),
+(219, 'LUPPI GIORGIO'),
+(220, 'MANDOLINI STEFANIA'),
+(221, 'CRICCO GIORGIO'),
+(222, 'DI TEODORO FRANCESCO'),
+(223, 'BRUNIN FABIENNE'),
+(224, 'CASTRONOVO VALERIO'),
+(225, 'VILLA VERONICA'),
+(226, 'SEIFFARTH ACHIM');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `casaeditrice`
+--
+
+CREATE TABLE IF NOT EXISTS `casaeditrice` (
+  `IDCasaEditrice` int(11) NOT NULL AUTO_INCREMENT,
+  `casaEditrice` varchar(30) NOT NULL,
+  PRIMARY KEY (`IDCasaEditrice`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
+
+--
+-- Dump dei dati per la tabella `casaeditrice`
+--
+
+INSERT INTO `casaeditrice` (`IDCasaEditrice`, `casaEditrice`) VALUES
+(32, 'ANGELI'),
+(33, 'ARDEA EDITORE'),
+(34, 'ARMANDO ARMANDO SRL'),
+(35, 'BONACCI EDITORE SRL'),
+(36, 'BORGIONE'),
+(37, 'BULGARINI'),
+(38, 'CAROCCI'),
+(39, 'CEDAM SCUOLA'),
+(40, 'DE AGOSTINI SCUOLA'),
+(41, 'EDITRICE LA SCUOLA'),
+(42, 'EDIZIONI DIDATTICHE GULLIVER'),
+(43, 'EDIZIONI DEL BORGO'),
+(44, 'ERNESTO BIGNAMI EDIT. SRL'),
+(45, 'FABBRI EDITORI'),
+(46, 'GIUNTI SCUOLA'),
+(47, 'GRUPPO EDITORIALE IL CAPITELLO'),
+(48, 'GRUPPO EDITORIALE SPAGGIARI'),
+(49, 'IBISCUS EDIZIONI'),
+(50, 'LA SPIGA EDIZIONI'),
+(51, 'LIBRERIA SCOLASTICA'),
+(52, 'LISCIANI SCUOLA'),
+(54, 'MIRO’ EDITORI'),
+(55, 'MONDADORI'),
+(56, 'IST.GEOGRAF.DE AGOSTINI SPA'),
+(57, 'RAFFAELLO CORTINA EDITORE'),
+(59, 'SCOLASTICA EDITRICE'),
+(60, 'SEI EDITRICE'),
+(61, 'SCUOLA BOOK'),
+(62, 'ZANICHELLI'),
+(63, 'ELLE DI CI'),
+(64, 'PARAVIA'),
+(65, 'PEARSON LONGMAN'),
+(66, 'PETRINI'),
+(67, 'HOEPLI'),
+(68, 'ATLAS'),
+(69, 'JUVENILIA'),
+(70, 'MINERVA ITALICA'),
+(71, 'GHISETTI & CORVI EDITORI'),
+(72, 'MACMILLAN'),
+(74, 'TRAMONTANA'),
+(75, 'RCS LIBRI'),
+(76, 'EDISCO'),
+(77, 'LATERZA SCOLASTICA'),
+(78, 'CLITT'),
+(79, 'BOMPIANI PER LA SCUOLA'),
+(80, 'LA NUOVA ITALIA EDITRICE'),
+(81, 'OXFORD UNIVERSITY PRESS'),
+(82, 'HACHETTE - DISTR. RCS'),
+(83, 'LANG EDIZIONI'),
+(84, 'LE MONNIER'),
+(85, 'CARLO SIGNORELLI EDITORE'),
+(86, 'EUROPASS'),
+(87, 'CAMBRIDGE UNIVERITY PRESS'),
+(88, 'PRINCIPATO'),
+(89, 'GARZANTI SCUOLA'),
+(90, 'CIDEB'),
+(91, 'KLETT'),
+(92, 'LOESCHER EDITORE'),
+(93, 'BOVOLENTA'),
+(94, 'ELI'),
+(95, 'CALDERINI'),
+(96, 'PARAMOND'),
+(97, 'D''ANNA'),
+(98, 'LATTES'),
+(99, 'MURSIA SCUOLA'),
+(100, 'VALMARTINA'),
+(101, 'LINX'),
+(102, 'LA SCUOLA EDITRICE');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `classe`
+--
+
+CREATE TABLE IF NOT EXISTS `classe` (
+  `IDClasse` int(11) NOT NULL AUTO_INCREMENT,
+  `classe` int(1) NOT NULL,
+  PRIMARY KEY (`IDClasse`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dump dei dati per la tabella `classe`
+--
+
+INSERT INTO `classe` (`IDClasse`, `classe`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `corso`
+--
+
+CREATE TABLE IF NOT EXISTS `corso` (
+  `IDCorso` int(11) NOT NULL AUTO_INCREMENT,
+  `corso` varchar(30) NOT NULL,
+  PRIMARY KEY (`IDCorso`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dump dei dati per la tabella `corso`
+--
+
+INSERT INTO `corso` (`IDCorso`, `corso`) VALUES
+(1, 'informatico'),
+(2, 'scientifico'),
+(3, 'meccanico'),
+(4, 'chimico'),
+(5, 'FeM'),
+(6, 'linguistico');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `libro`
+--
+
+CREATE TABLE IF NOT EXISTS `libro` (
+  `ID libro` int(11) NOT NULL AUTO_INCREMENT,
+  `ISBN` char(13) NOT NULL DEFAULT '',
+  `titolo` char(70) NOT NULL,
+  `IDmateria` int(11) DEFAULT NULL,
+  `IDcasaEditrice` int(11) DEFAULT NULL,
+  `IDautore` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID libro`),
+  KEY `libroautore` (`IDautore`),
+  KEY `librocasaeditrice` (`IDcasaEditrice`),
+  KEY `libromateria` (`IDmateria`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=122 ;
+
+--
+-- Dump dei dati per la tabella `libro`
+--
+
+INSERT INTO `libro` (`ID libro`, `ISBN`, `titolo`, `IDmateria`, `IDcasaEditrice`, `IDautore`) VALUES
+(2, '9788805075492', 'ARCOBALENI + DVD - CON NULLA OSTA CEI / VOLUME UNICO QUINQUENNALE', 20, 60, 31),
+(3, '9788824730518', 'FORME DELLA LINGUA (LE) / LA GRAMMATICA E LA SCRITTURA+IL\r\nLESSICO+CD', 5, 55, 2),
+(4, '9788839522580', 'PIU'' BELLO DEI MARI A', 5, 64, 3),
+(5, '9788839522603', 'PIU'' BELLO DEI MARI C', 5, 64, 3),
+(6, '9788808189684', 'GRAMMAR IN PROGRESS', 9, 62, 6),
+(7, '9788883391453', 'SPEAK YOUR MIND 1 ED.MYENGLISHLAB SB+WB+AB', 9, 65, NULL),
+(8, '9788842444039', 'GEOLABORATORIO - VOL. U. L''EUROPA E IL MONDO NEL XXI SECOLO', 7, 55, 121),
+(9, '9788808401281', 'GEOLABORATORIO - VOL. U. L''EUROPA E IL MONDO NEL XXI SECOLO\r\nMULTIMEDI', 34, 62, 16),
+(10, '9788808434951', 'TERRA. EDIZIONE VERDE - (LD) / SECONDA EDIZIONE DI OSSERVARE\r\n#TERRA.', 34, 62, 16),
+(11, '9788808500939', 'AMALDI.VERDE VOL. 1', 14, 62, 32),
+(12, '9788849419177', 'MATEMATICA A COLORI (LA) EDIZIONE VERDE VOLUME 1', 6, 66, 33),
+(13, '9788863646603', 'NUOVO DAL BIT AL WEB', 3, 101, 34),
+(14, '9788863647372', 'CHIMICA PER CONCETTI', 15, 101, 36),
+(15, '9788839519313', 'DIRITTI IN GIOCO', 33, 64, 39),
+(16, '9788805073634', 'TTR TECNOLOGIE E TECNICHE DI RAPPRESENTAZIONE GRAFICA\r\n1', 15, 60, 40),
+(17, '9788842674061', 'ITINERARI DI IRC 2.0 VOLUME UNICO', 20, 63, 1),
+(18, '9788839526281', 'PIU'' BELLO DEI MARI B', 5, 64, 3),
+(19, '', 'SPEAK YOUR MIND', 9, 65, NULL),
+(21, '9788842444053', 'SULLE TRACCE DI ERODOTO 2', 7, 55, 121),
+(22, '9788808534729', 'AMALDI VERDE (L'') - VOL 2', 14, 62, 32),
+(23, '9788808936721', ' BIOLOGIA 2ED. / CELLULA, CORPO UMANO, EVOLUZIONE', 34, 62, 41),
+(24, '9788849419184', 'MATEMATICA A COLORI (LA) EDIZIONE VERDE VOLUME 2', 6, 66, 33),
+(25, '9788820366582', 'CORSO DI SCIENZE E TECNOLOGIE APPLICATE', 25, 67, NULL),
+(26, '9788805074228', 'AUTOCAD 2015', 16, 60, 40),
+(28, '9788839519894', 'INTERMINATI SPAZI A', 5, 64, 3),
+(29, '9788839520470', 'INTERMINATI SPAZI C', 5, 64, 3),
+(49, '9788824744683', 'AGENDA DI ITALIANO (L'')', 5, 55, 2),
+(50, '9788873863984', 'GATEWAY', 9, 72, NULL),
+(51, '9788883392764', 'GRAMMAR AND VOCABULARY MULTITRAINER', 9, 65, 103),
+(52, '9788842402725', 'NUOVO SULLE TRACCE DI ERODOTO 1', 7, 55, 121),
+(53, '9788808421166', 'GEOGRAFIA IN 30 LEZIONI', 31, 62, NULL),
+(54, '9788808434937', 'INCONTRO CON LE SCIENZE DELLA TERRA', 38, 62, 125),
+(56, '9788826816364', 'LINEAMENTI DI MATEMATICA 1', 6, 68, 91),
+(57, '9788820356828', 'TECNOLOGIE INFORMATICHE OFFICE 2010', 1, 67, 126),
+(58, '9788808634825', 'ESPLORIAMO LA CHIMICA', 15, 62, 73),
+(60, '9788846828101', 'CHIMICA QUADERNO OPERATIVO', 15, 50, 40),
+(61, '9788823329645', 'NUOVO CITTADINO EUROPEO (IL)', 13, 74, 130),
+(64, '9788839519924', 'INTERMINATI SPAZI B', 5, 64, 3),
+(65, '9788826816586', 'PROMESSI SPOSI', 5, 68, 132),
+(66, '9788842402732', 'NUOVO SULLE TRACCE DI ERODOTO 2', 7, 55, 121),
+(67, '9788826816371', 'LINEAMENTI DI MATEMATICA 2', 6, 68, 91),
+(68, '9788808734822', 'ESPLORIAMO LA CHIMICA VOL 2', 15, 62, 73),
+(69, '9788808536730', 'INTRODUZIONE ALLA BIOLOGIA', 38, 62, 70),
+(70, '9788823329614', 'NUOVO CITTADINO EUROPEO VOL 2', 13, 74, 130),
+(71, '9788820366568', 'NUOVO STA', 25, 67, NULL),
+(73, '9788842446934', 'MENTE INNAMORATA', 5, 55, 133),
+(74, '9788839532220', 'PIACERE DEI TESTI 2', 5, 64, 43),
+(75, '9788839532220', 'PIACERE DEI TESTI 1', 5, 64, 43),
+(78, '9788808635822', 'PERFORMER FIRST TUTOR', 9, 62, 9),
+(79, '9788844119553', 'NEW A MATTER OF LIFE', 9, 76, 134),
+(81, '9788842110347', 'SENSO DEL TEMPO', 7, 77, 82),
+(82, '9788853805171', 'LINEAMENTI MATH VOL 3', 6, 71, 65),
+(84, '9788808236760', 'FONDAMENTI DI CHIMICA FISICA', 39, 62, 138),
+(85, '9788808089359', 'PRINCIPI DI CHIMICA ANALITICA', 37, 62, 140),
+(86, '9788844118785', 'TECNOLOGIE CHIMICHE VOL 1', 41, 76, 142),
+(89, '9788808306562', 'BIOLOGIA MICROBIOLOGIA BIOTECNOLOGIE - LAB', 36, 62, 153),
+(90, '9788839532244', 'PIACERE DEI TESTI 3', 5, 64, 43),
+(91, '9788808059475', 'INTO SCIENCE', 9, 78, 143),
+(92, '9780230410060', 'CODE RED', 9, 72, 146),
+(93, '9788808063717', 'ELEMENTI DI ANALISI CHIMICA STRUMENTALI', 39, 62, 147),
+(95, '9788808193506', 'CHIMICA ORGANICA', 42, 62, 135),
+(97, '9788853805188', 'LINEAMENTI MATH COL 4', 6, 71, 65),
+(99, '9788853805188', 'FISICA AMBIENTALE', 35, 67, 156),
+(100, '9788841642580', 'PARCOURS', 10, 86, 214),
+(101, '9788861611047', 'STIMMTI 2', 11, 83, 170),
+(102, '9788808189301', 'BIOLOGIA BLU', 43, 62, 209),
+(103, '9788869644559', 'PENSIERO FILOSOFICO', 17, 89, 83),
+(105, '9788808046031', 'ITINERARIO DELL''ARTE', 18, 62, 221),
+(106, '9788826818382', 'INFORMATICA PER ISTITUTI TECNICI', 1, 68, 49),
+(107, '9788826815480', 'TECNOLOGIE E PROGETTAZIONE DI SISTEMI INFORMATICI', 3, 68, 49),
+(108, '9788820350222', 'CORSO DI TELECOMUNICAZIONI', 19, 67, 54),
+(109, '9788874853991', 'INTERNETWORKING', 2, 69, 55),
+(110, '9788839526373', 'ATTUALITA'' DELLA LETTERATURA 3/1', 5, 64, 43),
+(111, '9788883391118', 'ENGLISH FOR NEW TECHNOLOGY', 9, 65, 58),
+(112, '9788820366490', 'CORSO DI MECCANICA,MACCHINE ED ENERGIA', 21, 67, 108),
+(113, '9788852803697', 'SISTEMI E AUTOMAZIONE INDUSTRIALE', 22, 95, 111),
+(114, '9788820366506', 'CORSO DI TECNOLOGIA MECCANICA', 23, 67, 112),
+(115, '9788839529930', 'NUOVO DAL PROGETTO AL PROTOCOLLO', 24, 64, 115),
+(116, '9788880428046', 'ECONOMIA POLITICA', 30, 98, 175),
+(117, '9788861602663', 'AZIENDA PASSO PASSO 2.0', 26, 96, 166),
+(118, '9788823335448', 'MONDO DEL DIRITTO OGGI', 13, 74, 176),
+(120, '9788853615404', 'COMMERCE EN ACTION', 10, 94, 193),
+(121, '9788800224949', 'RELAZIONI INTERNAZIONALI', 27, 84, 194);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `libro_classe`
+--
+
+CREATE TABLE IF NOT EXISTS `libro_classe` (
+  `ID LIBRO_CLASSE` int(11) NOT NULL AUTO_INCREMENT,
+  `ID LIBRO` int(11) DEFAULT NULL,
+  `ID CLASSE` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID LIBRO_CLASSE`),
+  KEY `ID LIBRO` (`ID LIBRO`),
+  KEY `ID CLASSE` (`ID CLASSE`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dump dei dati per la tabella `libro_classe`
+--
+
+INSERT INTO `libro_classe` (`ID LIBRO_CLASSE`, `ID LIBRO`, `ID CLASSE`) VALUES
+(1, 121, 5),
+(2, 120, 5),
+(3, 118, 3),
+(4, 117, 3),
+(5, 67, 2),
+(6, NULL, 2),
+(7, NULL, 3),
+(8, NULL, 4),
+(9, NULL, 2),
+(10, NULL, 3),
+(11, NULL, 4),
+(12, NULL, 2),
+(13, NULL, 3),
+(14, NULL, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `libro_corso`
+--
+
+CREATE TABLE IF NOT EXISTS `libro_corso` (
+  `ID_CORSO_LIBRO` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_LIBRO` int(11) DEFAULT NULL,
+  `ID_CORSO` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_CORSO_LIBRO`),
+  KEY `IDLIBRO` (`ID_LIBRO`),
+  KEY `IDCORSO` (`ID_CORSO`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dump dei dati per la tabella `libro_corso`
+--
+
+INSERT INTO `libro_corso` (`ID_CORSO_LIBRO`, `ID_LIBRO`, `ID_CORSO`) VALUES
+(1, 121, 5),
+(2, 120, 5),
+(3, 118, 5),
+(4, 117, 5),
+(5, 67, 1),
+(6, NULL, 5),
+(7, NULL, 2),
+(8, NULL, 6),
+(9, NULL, 5),
+(10, NULL, 2),
+(11, NULL, 6),
+(12, NULL, 5),
+(13, NULL, 2),
+(14, NULL, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `materia`
+--
+
+CREATE TABLE IF NOT EXISTS `materia` (
+  `IDMateria` int(11) NOT NULL AUTO_INCREMENT,
+  `materia` varchar(40) NOT NULL,
+  PRIMARY KEY (`IDMateria`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+
+--
+-- Dump dei dati per la tabella `materia`
+--
+
+INSERT INTO `materia` (`IDMateria`, `materia`) VALUES
+(1, 'informatica'),
+(2, 'sistemi'),
+(3, 'tecnologia'),
+(4, 'gestione progetto e organizzazione...'),
+(5, 'italiano'),
+(6, 'matematica'),
+(7, 'storia'),
+(9, 'inglese'),
+(10, 'francese'),
+(11, 'tedesco'),
+(12, 'spagnolo'),
+(13, 'diritto'),
+(14, 'fisica'),
+(15, 'chimica'),
+(16, 'disegno tecnico'),
+(17, 'filosofia'),
+(18, 'storia dell'' arte'),
+(19, 'telecomunicazioni'),
+(20, 'religione'),
+(21, 'meccanica,macchine ed energia'),
+(22, 'sistemi e automazion'),
+(23, 'tecnologia meccanica'),
+(24, 'disegno progetazione'),
+(25, 'scienze e tecnologia applicate'),
+(26, 'economia aziendale'),
+(27, 'relazioni internazionali'),
+(28, 'tecnologie della comunicazione'),
+(29, 'scienza della finanze'),
+(30, 'economia politica'),
+(31, 'geografia'),
+(32, 'biologia e laboratorio'),
+(33, 'diritto ed economia'),
+(34, 'scienze'),
+(35, 'fisica ambientale'),
+(36, 'chimica microbiologia'),
+(37, 'chimica analitica e strumentale'),
+(38, 'scienze della terra e biologia'),
+(39, 'analisi chimica'),
+(41, 'tecnologie chimiche'),
+(42, 'chimica organica'),
+(43, 'scienze naturali'),
+(44, 'latino'),
+(45, 'geostoria');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `utente`
+--
+
+CREATE TABLE IF NOT EXISTS `utente` (
+  `IDUtente` int(11) NOT NULL AUTO_INCREMENT,
+  `password` char(32) NOT NULL,
+  `nome` varchar(25) NOT NULL,
+  `cognome` varchar(25) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `admin` tinyint(4) NOT NULL,
+  PRIMARY KEY (`IDUtente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Dump dei dati per la tabella `utente`
+--
+
+INSERT INTO `utente` (`IDUtente`, `password`, `nome`, `cognome`, `email`, `admin`) VALUES
+(1, 'asdasd', 'luca', 'maccarrone', 'lucamacca97@gmail.com', 0),
+(2, 'Rada1234', 'Stefano', 'Radaelli', 'ste.r96@hotmail.it', 1),
+(5, 'ciaone', 'giorgio', 'rossi', 'rossi_giorgio@outlook.it', 1),
+(6, 'ciaone', 'giorgio', 'asdone', 'bellazio24@ciao.it', 0),
+(8, 'sdas', 'asd', 'sfasf', 'asdasd@asdas.it', 0),
+(14, '6e6bc4e49dd477ebc98ef4046c067b5f', 'ciao', 'ciao', 'ciao@ccciao.it', 0),
+(15, '6e6bc4e49dd477ebc98ef4046c067b5f', 'ciao', 'ciao', 'ciao@ciao.it', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `vendite`
+--
+
+CREATE TABLE IF NOT EXISTS `vendite` (
+  `IDvendita` int(11) NOT NULL AUTO_INCREMENT,
+  `IDutente` int(11) DEFAULT NULL,
+  `IDLibro` int(11) DEFAULT NULL,
+  `prezzo` decimal(10,0) NOT NULL,
+  `datadiinserimento` date NOT NULL,
+  `descrizione` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `venduto` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`IDvendita`),
+  KEY `venditelibro` (`IDLibro`),
+  KEY `venditeutente` (`IDutente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dump dei dati per la tabella `vendite`
+--
+
+INSERT INTO `vendite` (`IDvendita`, `IDutente`, `IDLibro`, `prezzo`, `datadiinserimento`, `descrizione`, `venduto`) VALUES
+(1, 5, 67, '15', '2015-12-29', 'libro molto bello e divertente', 1),
+(2, 5, 67, '15', '2015-12-29', 'libro molto bello e divertente', 0),
+(3, 5, 121, '20', '0000-00-00', 'libro divertente e carino', 1),
+(4, 5, 121, '5', '0000-00-00', '.<p>sfasfasFSAF&nbsp;</p>.', 0),
+(5, 5, 121, '4', '0000-00-00', '.<p>asdsadas</p>.', 0),
+(6, 6, 120, '234', '0000-00-00', '.<p>sacaadadsad asdsgadgd sgdgada gds</p>.', 0);
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `libro`
+--
+ALTER TABLE `libro`
+  ADD CONSTRAINT `libroautore` FOREIGN KEY (`IDautore`) REFERENCES `autore` (`IDAutori`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `librocasaeditrice` FOREIGN KEY (`IDcasaEditrice`) REFERENCES `casaeditrice` (`IDCasaEditrice`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `libromateria` FOREIGN KEY (`IDmateria`) REFERENCES `materia` (`IDMateria`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `libro_classe`
+--
+ALTER TABLE `libro_classe`
+  ADD CONSTRAINT `ID CLASSE` FOREIGN KEY (`ID CLASSE`) REFERENCES `classe` (`IDClasse`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `ID LIBRO` FOREIGN KEY (`ID LIBRO`) REFERENCES `libro` (`ID libro`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `libro_corso`
+--
+ALTER TABLE `libro_corso`
+  ADD CONSTRAINT `IDCORSO` FOREIGN KEY (`ID_CORSO`) REFERENCES `corso` (`IDCorso`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `IDLIBRO` FOREIGN KEY (`ID_LIBRO`) REFERENCES `libro` (`ID libro`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Limiti per la tabella `vendite`
+--
+ALTER TABLE `vendite`
+  ADD CONSTRAINT `venditelibro` FOREIGN KEY (`IDLibro`) REFERENCES `libro` (`ID libro`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `venditeutente` FOREIGN KEY (`IDutente`) REFERENCES `utente` (`IDUtente`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
